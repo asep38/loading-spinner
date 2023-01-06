@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.spinner {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  overflow: hidden;
+  position: relative;
+  animation: text-fading 2s ease-in-out infinite alternate;
+}
+
+@keyframes text-fading {
+  0% {
+    color: rgba(0, 0, 0, 1);
+  }
+  50% {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.spinner-sector {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background: red; */
+  --webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 15px solid transparent;
+  mix-blend-mode: overlay;
+  animation: rotate var(--duration) var(--timing) infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-sector-red {
+  border-top-color: red;
+  --duration: 1.5s;
+  --timing: ease-in-out;
+}
+.spinner-sector-blue {
+  border-left-color: blue;
+  --duration: 2s;
+  --timing: ease-in;
+}
+.spinner-sector-green {
+  border-right-color: green;
+  --duration: 2.5s;
+  --timing: ease-out;
+}
+.spinner-sector-orange {
+  border-bottom-color: orange;
+  --duration: 3s;
+  --timing: ease-in;
+}
